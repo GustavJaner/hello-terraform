@@ -21,7 +21,7 @@ Check what will happen before doing `apply`
 terraform plan
 ```
 
-Build/provision or change infrastucture
+Build/provision or change infrastucture/resources defined in the Terraform configuration
 ```
 terraform apply
 ```
@@ -32,7 +32,7 @@ Inspect Terraform state or plan file in a human-readable form.
 terraform show
 ```
 
-Stop the running container
+The terraform destroy command terminates the resources defined in your Terraform configuration.
 ```
 terraform destroy
 ```
