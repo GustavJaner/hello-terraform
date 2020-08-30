@@ -67,12 +67,12 @@ output stuff
 
 ## Misc.
 ### Structure
-One Terraform project PER directory.  
+One Terraform module/project PER directory.  
 Naming: all *.tf in the current directory will be compiled together (name them whatever). Decouple to several files == all configs in the same file.
 
 ### State
 The state of the resources for the tf project are stored in the files: `terraform.tfstate` and `terraform.tfstate.backup`.
-The state contain id and other information **Required** for tf to find and update/destroy a provisioned resource. The state files should be stored remotely to allow collaboration for tf provisioned resources.
+The state contain id and other information **Required** for tf to find and update/destroy a provisioned resource. Tf tracks the provision resources with the state. The state files should be stored remotely to allow collaboration for tf provisioned resources.
 
 HashiCorps TerraForm cloud can be used as a remote environment where all tf commands are executed and the state is stored and shared.
 
@@ -83,3 +83,12 @@ terraform {
   backend "s3" {}
 }
 ```
+
+
+# Terragrunt
+DRY and maintainable Terraform code.
+Terragrunt is a thin wrapper that provides extra tools for keeping your configurations DRY, working with multiple Terraform modules, and managing remote state.
+
+## Dry
+Keep your backend configuration DRY.
+Terragrunt allows you to keep your backend configuration DRY (“Don’t Repeat Yourself”) by defining it once in a root location and inheriting that configuration in all child modules (shared state backend etc.)
